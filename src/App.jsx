@@ -26,9 +26,9 @@ function App() {
         <form action="#" className="login-form">
             
             {/* Compnent of inputFiedl */}
-            <InputField type = "email" placeholder = "Email address" icon="mail" />
+            <InputField type = "email" placeholder = "Email address" />
             {/* Compnent of inputFiedl */}
-            <InputField type = "password" placeholder = "Password" icon="mail"/>
+            <InputField type = "password" placeholder = "Password" />
 
             <button className="login-button">Log In</button>
             <a href="#" className="forgot-pass-link">Forgot Password ?</a>
