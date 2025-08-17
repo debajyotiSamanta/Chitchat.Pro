@@ -1,0 +1,222 @@
+/* Light mode default */
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* ✅ centers the form */
+  position: relative;
+  font-family: Arial, sans-serif;
+  transition: background 0.3s ease;
+  background: linear-gradient(270deg, #a68bf0, #f7f9fc, #ffb3b3);
+  background-size: 600% 600%;
+  animation: gradientMove 12s ease infinite;
+  overflow: hidden;          /* ✅ prevents unwanted scroll */
+}
+
+/* Dark mode */
+.register-container.dark {
+  background: #121212;
+}
+
+/* Logo */
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  position: absolute;
+  top: 2px;
+  left: 4px;
+}
+
+/* Toggle switch container */
+.theme-toggle-switch {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+/* Hide checkbox */
+.toggle-checkbox {
+  display: none;
+}
+
+/* Background of toggle */
+.toggle-label {
+  width: 70px;
+  height: 34px;
+  background: #ccc;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+  font-size: 16px;
+}
+
+/* Ball */
+.toggle-ball {
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Icons */
+.sun {
+  color: #f4b400;
+  z-index: 1;
+}
+
+.moon {
+  color: #4285f4;
+  z-index: 1;
+}
+
+/* Checked state (dark mode) */
+.toggle-checkbox:checked + .toggle-label {
+  background: #333;
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-ball {
+  transform: translateX(36px);
+  background: #f4b400;
+}
+
+
+/* Card */
+/* Card */
+/* Card */
+.register-card {
+  background: transparent;   /* ✅ remove white box */
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: none;          /* ✅ remove shadow */
+  width: 350px;
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+  margin: 0 auto;
+}
+
+
+
+.register-container.dark .register-card {
+  background: #1e1e1e;
+  color: white;
+}
+
+.register-card h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.register-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-card input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  border-radius: 25px;
+  border: none;
+  background: #e4e4e4;
+  font-size: 14px;
+}
+
+.register-container.dark input {
+  background: #333;
+  color: white;
+}
+
+.signup-btn {
+  width: 100%;
+  background: #4285f4;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.signup-btn:hover {
+  background: #357ae8;
+}
+
+.signup-btn:disabled {
+  background: #a0c3ff;
+  cursor: not-allowed;
+}
+
+/* Google button */
+.google-btn {
+  width: 100%;
+  background: #e4e4e4;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+  background: #4285f4;
+  border-radius: 50%;
+}
+
+.register-container.dark .google-btn {
+  background: #333;
+}
+
+/* Error text */
+.error-text {
+  color: red;
+  font-size: 12px;
+  text-align: left;
+  margin-top: -12px;
+  margin-bottom: 12px;
+}
+
+/* Success text */
+.success-text {
+  color: green;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.register-card p {
+  font-size: 14px;
+}
+
+.register-card a {
+  color: blue;
+  text-decoration: none;
+}
+
+.register-card a:hover {
+  text-decoration: underline;
+}
+
+/* Background animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
