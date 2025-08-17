@@ -1,9 +1,30 @@
+import React, { useState } from "react";
+
 const DarkMode = () => {
+    const [darkTheme, setDarkTheme] = useState(false);
+
+    const handleToggle = () => {
+        setDarkTheme((prev) => {
+            const newTheme = !prev;
+            if (newTheme) {
+                document.body.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+            }
+            return newTheme;
+        });
+    };
+
     return (
         <div>
             {/* <!-- From Uiverse.io by RiccardoRapelli --> */}
             <label className="switch">
-                <input id="input" type="checkbox" checked="darkTheme" />
+                <input
+                    id="input"
+                    type="checkbox"
+                    checked={darkTheme}
+                    onChange={handleToggle}
+                />
                 <div className="slider round">
                     <div className="sun-moon">
                         <svg id="moon-dot-1" className="moon-dot" viewBox="0 0 100 100">
@@ -70,7 +91,6 @@ const DarkMode = () => {
             </label>
         </div>
     );
-}
-
+};
 
 export default DarkMode;

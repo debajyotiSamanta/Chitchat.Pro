@@ -1,4 +1,4 @@
-const InputField = ({type, placeholder, icon}) => {
+const InputField = ({type, placeholder}) => {
     return (
         <div className="input-wrapper">
             <input
@@ -7,7 +7,7 @@ const InputField = ({type, placeholder, icon}) => {
                 className="input-field"
                 required
             />
-            <i className="material-symbols-rounded">{icon}</i>
+            {/* <i className="material-symbols-rounded">{icon}</i> */}
         </div>
     );
 };
