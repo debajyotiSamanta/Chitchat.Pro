@@ -1,50 +1,29 @@
-import InputField from "./Components/inputField";
-import SocialLogin from "./Components/sociallogin";
-import DarkMode from "./Components/darkMode";
-
-
+import { Routes, Route, Navigate } from "react-router-dom";
+import LoginPage from "./Components/Login/LoginPage";
+import RegisterPage from "./Components/RegisterPage/RegisterPage";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
+import ChatLayout from "./Components/chatUI/ChatLayout";
 
 function App() {
   return (
-    <div className="login-container">
-      <div className="header">
+    <Routes>
+      {/* Auth Routes */}
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
 
-        <div className="main-logo-container">
-            <a href="#">
-                <img src="../myWork/asset/logo.png" alt="logo" className="main-logo-img" />
-            </a>
-        </div>
-        
-        {/* DarkMode toggle Button Component */}
-        <DarkMode />
+      {/* Protected Chat Layout */}
+      <Route
+        path="/*"
+        element={
+          <ProtectedRoute>
+            <ChatLayout />
+          </ProtectedRoute>
+        }
+      />
 
-      </div>
-
-      <div className="body">
-        <h1 className="form-title">Welcome Back</h1>
-
-        <form action="#" className="login-form">
-            
-            {/* Compnent of inputFiedl */}
-            <InputField type = "email" placeholder = "Email address" />
-            {/* Compnent of inputFiedl */}
-            <InputField type = "password" placeholder = "Password" />
-
-            <button className="login-button">Log In</button>
-            <a href="#" className="forgot-pass-link">Forgot Password ?</a>
-        </form>
-
-        <p className="seperator"><span>or</span></p>
-
-        {/* Continue with google Component */}
-        <SocialLogin />
-
-        <p className="signup-text">
-            Don't have an account? <a href="#">Sign Up</a>
-        </p>
-
-      </div>
-    </div>
+      {/* Default redirect to the main app layout if authenticated, else to login */}
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 }
 
